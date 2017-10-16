@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -13,6 +14,7 @@ import java.sql.Timestamp;
  * @author Anton Kurako (anku0817)
  * @since 12.10.2017
  */
+@MappedSuperclass
 public abstract class BasicJpaModel<ID extends Serializable> extends BasicModel<ID> {
 
     @CreationTimestamp

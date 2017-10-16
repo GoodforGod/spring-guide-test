@@ -5,8 +5,8 @@ import de.flapdoodle.embed.mongo.config.DownloadConfigBuilder;
 import de.flapdoodle.embed.mongo.config.ExtractedArtifactStoreBuilder;
 import de.flapdoodle.embed.mongo.config.RuntimeConfigBuilder;
 import de.flapdoodle.embed.process.config.IRuntimeConfig;
-import io.spring.guide.repository.TransactionRepository;
 import io.spring.guide.repository.UserRepository;
+import io.spring.guide.repository.sql.TransactionRepository;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoProperties;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
@@ -31,7 +31,6 @@ import org.springframework.data.mongodb.repository.support.MongoRepositoryFactor
 @AutoConfigureDataMongo
 @EnableMongoAuditing
 @EnableMongoRepositories(basePackageClasses = {
-        TransactionRepository.class,
         UserRepository.class
 })
 public class MongoEmbeddedConfig {
@@ -74,7 +73,7 @@ public class MongoEmbeddedConfig {
         return props;
     }
 
-    // Uncomment if you want to choose custom source for embedded mongo
+    // Uncomment if you want to choose custom source for embedded sql
 //    @Bean
 //    @Primary
     public IRuntimeConfig runtimeConfigDownload() {

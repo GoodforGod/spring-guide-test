@@ -1,12 +1,13 @@
 package io.spring.guide.repository;
 
 import io.spring.guide.StorageAssert;
-import io.spring.guide.config.MongoEmbeddedConfig;
 import io.spring.guide.model.Transaction;
+import io.spring.guide.repository.sql.TransactionRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,8 @@ import javax.annotation.PostConstruct;
  * @since 16.10.2017
  */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = { MongoEmbeddedConfig.class })
+@SpringBootTest
+@ActiveProfiles("test")
 public class BasicRepositoryTest extends StorageAssert<Transaction, String> {
 
     @Autowired

@@ -1,7 +1,12 @@
 server:
+  profiles:
+    active: "prod"
   port: 8080
 
+---
+
 spring:
+  profiles: prod
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

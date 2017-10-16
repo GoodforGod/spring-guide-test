@@ -1,4 +1,4 @@
-package io.spring.guide.repository;
+package io.spring.guide.repository.sql;
 
 import io.spring.guide.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;

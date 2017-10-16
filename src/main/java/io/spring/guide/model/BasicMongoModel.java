@@ -3,6 +3,7 @@ package io.spring.guide.model;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +13,7 @@ import java.util.Date;
  * @author Anton Kurako (anku0817)
  * @since 12.10.2017
  */
+@MappedSuperclass
 public abstract class BasicMongoModel<ID extends Serializable> extends BasicModel<ID> {
 
     @CreatedDate

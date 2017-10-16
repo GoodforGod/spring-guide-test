@@ -1,7 +1,7 @@
 package io.spring.guide.service.modelbased.impl;
 
 import io.spring.guide.model.Transaction;
-import io.spring.guide.repository.TransactionRepository;
+import io.spring.guide.repository.sql.TransactionRepository;
 import io.spring.guide.service.modelbased.ITransactionModelService;
 import org.springframework.stereotype.Service;
 

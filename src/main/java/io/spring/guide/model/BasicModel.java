@@ -1,5 +1,7 @@
 package io.spring.guide.model;
 
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 /**
@@ -8,9 +10,11 @@ import java.io.Serializable;
  * @author Anton Kurako (anku0817)
  * @since 12.10.2017
  */
+@MappedSuperclass
 public abstract class BasicModel<ID extends Serializable> {
 
-    private final ID id;
+    @Id
+    protected final ID id;
 
     public BasicModel(ID id) {
         this.id = id;
