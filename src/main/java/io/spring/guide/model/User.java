@@ -33,22 +33,4 @@ public class User extends BasicMongoModel<String> {
     public String getEmail() {
         return email;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        User user = (User) o;
-
-        return email != null ? email.equals(user.email) : user.email == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        return result;
-    }
 }

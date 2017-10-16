@@ -6,10 +6,7 @@ import io.spring.guide.service.modelbased.impl.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,8 +36,8 @@ public class TransactionRestController {
                 : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(value = "/api/trans")
-    public ResponseEntity<TransactionTO> find(@RequestParam String id) {
+    @GetMapping(value = "/api/trans/{id}")
+    public ResponseEntity<TransactionTO> find(@PathVariable String id) {
         final TransactionTO trans = TransactionTO.of(transService.find(id));
         return (trans != null)
                 ? new ResponseEntity<>(trans, HttpStatus.OK)
@@ -48,7 +45,7 @@ public class TransactionRestController {
     }
 
     @GetMapping(value = "api/trans/all")
-    public ResponseEntity<List<TransactionTO>> findall() {
+    public ResponseEntity<List<TransactionTO>> findAll() {
         final List<TransactionTO> transList = transService.findAll()
                 .stream()
                 .map(TransactionTO::of)
