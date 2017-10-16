@@ -8,6 +8,7 @@ import io.spring.guide.model.Transaction;
  * @author Anton Kurako (anku0817)
  * @since 12.10.2017
  */
-public interface ITransactionModelService {
+public interface ITransactionModelService extends IBasicModelService<Transaction, String> {
 
+    Transaction create(String address, Integer amount);
 }

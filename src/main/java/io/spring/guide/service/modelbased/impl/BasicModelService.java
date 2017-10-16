@@ -51,6 +51,17 @@ public abstract class BasicModelService<T extends BasicModel<ID>, ID extends Ser
     }
 
     @Override
+    public List<T> findAll() {
+        final Iterable<T> iterable = repository.findAll();
+        if(iterable == null || !iterable.iterator().hasNext())
+            return Collections.emptyList();
+
+        final List<T> result = new ArrayList<>();
+        iterable.iterator().forEachRemaining(result::add);
+        return result;
+    }
+
+    @Override
     public T save(T t) {
         return isValid(t) ? repository.save(t) : null;
     }

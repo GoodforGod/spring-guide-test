@@ -21,4 +21,11 @@ public class TransactionService extends BasicJpaModelService<Transaction, String
         super(repository);
         this.repository = repository;
     }
+
+    @Override
+    public Transaction create(String address, Integer amount) {
+        return (address != null && amount != null)
+                ? save(new Transaction(amount, address))
+                : null;
+    }
 }

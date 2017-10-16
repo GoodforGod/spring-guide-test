@@ -19,6 +19,8 @@ public interface IBasicModelService<T extends BasicModel<ID>, ID extends Seriali
 
     T find(ID id);
 
+    List<T> findAll();
+
     T save(T t);
 
     List<T> save(List<T> list);

@@ -21,4 +21,11 @@ public class UserService extends BasicModelService<User, String>
         super(repository);
         this.repository = repository;
     }
+
+    @Override
+    public User create(String email, String name) {
+        return (email != null && name != null)
+                ? save(new User(email, name))
+                : null;
+    }
 }
