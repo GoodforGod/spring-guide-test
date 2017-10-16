@@ -1,5 +1,8 @@
 package io.spring.guide.service.modelbased.impl;
 
+import io.spring.guide.model.User;
+import io.spring.guide.repository.UserRepository;
+import io.spring.guide.service.modelbased.IUserModelService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,6 +12,13 @@ import org.springframework.stereotype.Service;
  * @since 12.10.2017
  */
 @Service
-public class UserService {
+public class UserService extends BasicModelService<User, String>
+                        implements IUserModelService {
 
+    private final UserRepository repository;
+
+    public UserService(UserRepository repository) {
+        super(repository);
+        this.repository = repository;
+    }
 }

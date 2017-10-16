@@ -19,7 +19,7 @@ public abstract class BasicModelService<T extends BasicModel<ID>, ID extends Ser
 
     private PagingAndSortingRepository<T, ID> repository;
 
-    public BasicModelService(PagingAndSortingRepository<T, ID> repository) {
+    BasicModelService(PagingAndSortingRepository<T, ID> repository) {
         this.repository = repository;
     }
 
