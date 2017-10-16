@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  h2:
+    console:
+      enable: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:file:~/test
+    username: postgres
+    password:
+    continue-on-error: true
+    dbcp2:
+      driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level: error
