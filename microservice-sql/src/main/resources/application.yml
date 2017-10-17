@@ -1,0 +1,25 @@
+server:
+  profiles:
+    active: "prod"
+  port: 8080
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1234
+    platform: postgres
+    continue-on-error: true
+    dbcp2:
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level: error
