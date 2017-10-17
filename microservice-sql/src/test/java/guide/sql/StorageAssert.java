@@ -15,7 +15,7 @@ import java.util.List;
  * @author Anton Kurako (anku0817)
  * @since 16.10.2017
  */
-public abstract class StorageAssert<T extends BasicJpaModel<ID>, ID extends Serializable> extends Assert {
+public class StorageAssert<T extends BasicJpaModel<ID>, ID extends Serializable> extends Assert {
 
     private PagingAndSortingRepository<T, ID> repository;
 
@@ -24,7 +24,9 @@ public abstract class StorageAssert<T extends BasicJpaModel<ID>, ID extends Seri
      */
     private final List<T> storage = new ArrayList<>();
 
-    protected abstract void setup();
+    protected void setup() {
+
+    }
 
     protected void setRepository(PagingAndSortingRepository<T, ID> repository) {
         this.repository = repository;

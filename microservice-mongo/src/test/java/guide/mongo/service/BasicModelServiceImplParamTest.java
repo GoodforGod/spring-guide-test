@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.rules.SpringClassRule;
 import org.springframework.test.context.junit4.rules.SpringMethodRule;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -28,7 +29,7 @@ import static org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 @ContextConfiguration(classes = { MongoEmbeddedConfig.class })
-public class BasicModelServiceImplParametesTest extends StorageAssert<User, String> {
+public class BasicModelServiceImplParamTest extends StorageAssert<User, String> {
 
     @ClassRule
     public static final SpringClassRule SPRING_CLASS_RULE = new SpringClassRule();
@@ -37,16 +38,10 @@ public class BasicModelServiceImplParametesTest extends StorageAssert<User, Stri
 
     @Autowired
     private UserRepository repository;
-
     private User prop;
 
-    public BasicModelServiceImplParametesTest(User prop) {
+    public BasicModelServiceImplParamTest(User prop) {
         this.prop = prop;
-    }
-
-    @Override
-    protected void setup() {
-        setRepository(repository);
     }
 
     @Parameters
@@ -56,6 +51,12 @@ public class BasicModelServiceImplParametesTest extends StorageAssert<User, Stri
                 { new User("Tod", "tototo@gmail.com") },
                 { new User("Gleb", "doom@mail.ru") },
         });
+    }
+
+    @PostConstruct
+    @Override
+    protected void setup() {
+        setRepository(repository);
     }
 
     @Test
