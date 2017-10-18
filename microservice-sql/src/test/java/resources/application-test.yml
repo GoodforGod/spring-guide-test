@@ -8,7 +8,7 @@ spring:
       path: /h2
   datasource:
     url: jdbc:h2:file:~/test
-    username: postgres
+    username: h2user
     password:
     continue-on-error: true
     dbcp2:
